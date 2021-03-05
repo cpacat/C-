@@ -1,0 +1,46 @@
+#include<iostream>
+
+using namespace std;
+
+ int pop(int a[] ,int num)
+ {
+ int i=0;
+ while(1)
+		{
+			a[i]=num%10;
+			num=num/10;                               //本函数摘自:https://blog.csdn.net/yangjinkui/article/details/52662108
+			i++;												//记录一个整数位数并倒装进一个数组
+			if(num==0)
+				break;
+		}
+ return i;
+ }
+
+ void print(int num)
+ {
+	 char mm[][6]={{"ling"},{"yi"},{"er"},{"san"},{"si"},{"wu"},{"liu"},{"qi"},{"ba"},{"jiu"}};
+	 cout<<mm[num];
+ }
+
+	int main()
+ {
+    char num[101];
+	cin>>num;																//输入C字符串
+	int sum=0,i=0;
+	while(num[i]!='\0')
+		{
+		sum+=num[i]-'0';													//摘自：https://blog.csdn.net/weixin_39241397/article/details/83243646
+		i++;
+		}
+
+	int a[3];//100位的数各位数字最大和为900
+	int s=pop(a,sum);
+	for(i=s-1;i>=0;i--)
+	{print(a[i]);
+		if(i!=0)
+			cout<<" ";
+	}
+
+
+ return 0;
+ }
