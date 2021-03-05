@@ -1,0 +1,48 @@
+#include<iostream>
+
+using namespace std;
+
+ int remember(int a[] ,int num)
+ {
+ int i=0;
+ while(1)
+		{
+			a[i]=num%10;
+			num=num/10;
+			i++;
+			if(num==0)
+				break;
+		}
+ return i;
+ }
+
+ void print(int num)
+ {
+	 char mm[][6]={{"ling "},{"yi "},{"er "},{"san "},{"si "},{"wu "},{"liu "},{"qi "},{"ba "},{"jiu "}};
+	 cout<<mm[num];
+ }
+
+	int main()
+ {
+    int num;
+	cin>>num;//输入数字
+	int sum=0;
+	int number[100];
+	int s=remember(number,num);//将数字倒装分配进组并输出位数
+
+
+for(int i=0;i<s;i++)
+		{
+			sum+=number[i];
+		}
+
+     int  tem[3];
+	 int u=remember(tem,sum);//将数字和倒装分配进组并输出位数
+	 for(int i=u-1;i>=0;i--)
+		{
+			print(tem[i]);
+	    }
+
+	 cout<<"\b"<<endl;
+ return 0;
+ }
